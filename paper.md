@@ -1,0 +1,429 @@
+---
+title: "Finite observation windows for continuous powers of normal operators"
+author: "Anonymous"
+date: "5 November 2026 — version 0.1.0-candidate"
+geometry: margin=25mm
+fontsize: 11pt
+link-citations: true
+---
+
+**Status:** Unrefereed mathematical manuscript, internally checked within an AI-assisted research session. Historical priority remains bounded by the literature search described below.
+
+**Candidate identifier:** [10.5281/zenodo.23990540](https://doi.org/10.5281/zenodo.23990540). The [companion repository](https://github.com/ipitchford/finite-normal-observation-windows) contains the sources and example checks. These identifiers do not establish peer review or historical priority.
+
+## Abstract
+
+Let \(A\) be a bounded normal operator on a complex Hilbert space, and let \(G\) be a finite or countable family of observation vectors. We prove that if the continuous-power family \(\{A^t g:g\in G,\ 0\leq t\leq T_0\}\) is a semi-continuous frame for one finite \(T_0>0\), it is a semi-continuous frame for every finite \(T>0\). The theorem requires neither a bounded inverse for \(A\), reductivity, nor a Bessel assumption on \(G\). It therefore implies the normal-reductive extension conjectured by Aldroubi, Huang and Petrosyan and repeated in the 2026 dynamical-sampling survey. The proof obtains locally bounded holomorphic observation maps directly from an integrated upper frame bound. A reflected holomorphic energy and Montel's theorem then propagate small observations from a shorter interval to the original interval, contradicting its lower bound. Examples distinguish injectivity from invertibility and show why delayed and infinite observation windows require separate treatment. The conclusion concerns existence of stable reconstruction on each window; it does not provide uniform conditioning as the window shrinks.
+
+## 1. The observation-window question
+
+Dynamical sampling studies reconstruction from measurements of a state as it evolves. In the normal-operator model, the observation vectors at time \(t\) have the form \(A^t g\). A frame inequality says that the collected measurements determine the initial state with a bounded reconstruction map. The lower inequality controls loss of information; the upper inequality controls the total measurement energy.
+
+Aldroubi, Huang and Petrosyan [1, Theorem 5.5] proved that a frame on one finite interval beginning at zero remains a frame on every such interval when \(A\) is invertible and self-adjoint. Their Conjecture 5.6 asks for a normal-reductive extension. Aldroubi, Cabrelli, Krishtal and Molter [2, Theorem 2.13 and Conjecture 2] repeat this question. An operator is *reductive* if each of its closed invariant subspaces is also invariant under its adjoint.
+
+We establish a stronger assertion: normality suffices, and invertibility is unnecessary. The distinction matters when spectral values approach zero. In that case the logarithmic generator can be unbounded, and the original observation family need not be Bessel even though its observations integrated over time satisfy an upper frame bound.
+
+The analytic-continuation strategy has a direct antecedent in the proof of [1, Theorem 5.5], which already uses Montel's theorem. The central step here is a uniform holomorphic observation estimate that works without a bounded logarithm or a Bessel observation family. This supplies the lower bound uniformly over all unit initial states. Analytic uniqueness for one fixed state would not suffice.
+
+## 2. Definitions and main theorem
+
+Let \(H\neq\{0\}\) be a separable complex Hilbert space. Inner products are linear in the first variable. Let \(A\in\mathcal B(H)\) be normal, meaning \(AA^*=A^*A\), with spectral measure \(E\). Fix a Borel argument
+
+\[
+\theta:\mathbb C\setminus\{0\}\longrightarrow[-\pi,\pi],
+\qquad e^{i\theta(\lambda)}=\frac{\lambda}{|\lambda|}.
+\]
+
+For \(t>0\), set
+
+\[
+\lambda^t=\exp\!\bigl(t(\log|\lambda|+i\theta(\lambda))\bigr)
+\quad(\lambda\neq0),\qquad 0^t=0,
+\]
+
+and define \(A^t\) by bounded Borel spectral calculus. Put \(A^0=I\). The value at the single endpoint \(t=0\) does not affect any integral below.
+
+The proof also works for any other fixed bounded Borel choice of argument. If its absolute value is bounded by \(B\), choose the averaging interval in Section 3 sufficiently short that \(hB<2\pi\). This prevents a zero of the averaging multiplier from entering the spectral strip. No unbounded winding convention is asserted.
+
+This choice specifies a spectral interpolation of the integer powers of \(A\). The theorem is not a statement about every continuous-time evolution having \(A\) as its time-one map.
+
+Let \(G=(g_j)_{j\in J}\subset H\), where \(J\) is finite or countable. Repetitions are allowed. Define the possibly infinite quadratic form
+
+\[
+Q_T(x):=\sum_{j\in J}\int_0^T
+        |\langle x,A^t g_j\rangle|^2\,dt,
+\qquad T>0.                                      \tag{2.1}
+\]
+
+The family is a *semi-continuous frame* on \([0,T]\) if there exist \(0<m_T\leq M_T<\infty\) such that
+
+\[
+m_T\|x\|^2\leq Q_T(x)\leq M_T\|x\|^2
+\qquad(x\in H).                                  \tag{2.2}
+\]
+
+The unevolved family \(G\) is *Bessel* if \(\sum_j|\langle x,g_j\rangle|^2\leq B\|x\|^2\) for some finite \(B\). We do not assume this property.
+
+To make the reconstruction statement explicit, let \(\mathcal O_Tx\) be the measurement function \(t\mapsto(\langle x,A^tg_j\rangle)_j\) in \(L^2((0,T);\ell^2(J))\). Under (2.2) this is a bounded linear operator with
+\[
+\sqrt{m_T}\|x\|\leq\|\mathcal O_Tx\|\leq\sqrt{M_T}\|x\|.
+\]
+Its range is closed and its inverse on that range is bounded. The canonical reconstruction operator is \((\mathcal O_T^*\mathcal O_T)^{-1}\mathcal O_T^*\). An additive measurement error of norm at most \(\varepsilon\) therefore produces reconstruction error at most \(\varepsilon/\sqrt{m_T}\). This is a stability statement, not a computational prescription or a guarantee that shorter observations are equally reliable.
+
+The observed trajectory is \(U(t)x=(A^t)^*x\), measured against the fixed sensors \(g_j\). We idealize the data as the complete time-dependent output in this \(L^2\) norm; no finite selection of sampling times, model-error bound or discretization-error bound is supplied. Nor does the theorem make finitely many sensors sufficient in infinite dimension. If \(G\) is finite, \(\mathcal O_T\) is Hilbert–Schmidt, since its squared Hilbert–Schmidt norm is
+\[
+\sum_{j\in J}\int_0^T\|A^tg_j\|^2\,dt<\infty.
+\]
+A compact operator cannot be bounded below on an infinite-dimensional Hilbert space. Thus finite \(G\) and the frame premise force finite-dimensional \(H\). This familiar compactness limitation is context, not a new contribution.
+
+### Theorem 2.1. Invariance of finite observation windows
+
+Suppose \(A\) is bounded and normal and \(G\) is finite or countable. If (2.2) holds for one \(T_0>0\), then it holds for every finite \(T>0\).
+
+Consequently, the set of finite positive observation durations producing a semi-continuous frame is either empty or all of \((0,\infty)\). No assumption of invertibility, reductivity or the Bessel property of \(G\) is needed.
+
+The theorem asserts that each shorter window has some positive lower frame bound. It does not assert a common lower bound for all durations, or that the original lower bound can be retained.
+
+Shorter windows can remain stable in this sense while becoming much more sensitive to noise; Section 6.3 quantifies the distinction. The proof has four steps. The lower bound first forces injectivity. The integrated upper bound then controls observations at positive complex times, even though the original sensor map may be unbounded. Reflection turns their energy into a scalar analytic family. Finally, compactness rules out unit states that become invisible on the shorter window but remain visible on the original one. The averaging multiplier in Section 3 supplies the smoothing needed when the logarithm of the operator is unbounded.
+
+## 3. Holomorphic observations from an integrated upper bound
+
+We first isolate the estimate that permits an unbounded sensor analysis map. Assume temporarily that \(\ker A=\{0\}\), and write
+
+\[
+b(\lambda)=\log|\lambda|+i\theta(\lambda),
+\qquad w(\lambda)=\overline{b(\lambda)}.
+\]
+
+The logarithmic spectral values lie in the strip
+
+\[
+\operatorname{Re}w\leq a:=\log\|A\|,
+\qquad |\operatorname{Im}w|\leq\pi.               \tag{3.1}
+\]
+
+For \(\operatorname{Re}z>0\), define
+
+\[
+U(z):=\int_{\sigma(A)\setminus\{0\}}
+            e^{z w(\lambda)}\,dE(\lambda).       \tag{3.2}
+\]
+
+Then \(U(t)=(A^t)^*\) for real \(t>0\), and
+
+\[
+\|U(z)\|\leq
+\max\{1,\|A\|^{\operatorname{Re}z}\}
+e^{\pi|\operatorname{Im}z|}.                     \tag{3.3}
+\]
+
+The map \(z\mapsto U(z)\) is holomorphic in operator norm on the right half-plane. On each compact subset, \(\operatorname{Re}z\) is bounded below by a positive number. Exponential decay as \(\operatorname{Re}w\to-\infty\) then bounds every multiplier \(w^k e^{zw}\), including the derivatives required for operator-norm holomorphy.
+
+The use of the conjugate logarithm in (3.2) is deliberate. For a fixed argument convention, \((A^*)^t\) need not equal \((A^t)^*\) on the negative real spectral axis. For example, if \(\theta(-1)=-\pi\), the two square-root expressions for \(A=-I\) are \(-iI\) and \(iI\). Equation (3.2) avoids that ambiguity.
+
+### Lemma 3.1. Positive-time holomorphic observation bound
+
+Suppose \(A\) is injective and normal and
+
+\[
+Q_{T_0}(x)\leq M\|x\|^2\qquad(x\in H).          \tag{3.4}
+\]
+
+For every \(x\in H\), the sequence
+
+\[
+F_x(z):=(\langle U(z)x,g_j\rangle)_{j\in J}      \tag{3.5}
+\]
+
+belongs to \(\ell^2(J)\) and defines a holomorphic function on \(\operatorname{Re}z>0\). For each compact subset \(K\) of that half-plane, there is a finite \(L_K\), independent of \(x\), such that
+
+\[
+\sup_{z\in K}\|F_x(z)\|_{\ell^2}\leq L_K\|x\|. \tag{3.6}
+\]
+
+**Proof.** Choose \(0<h\leq\min\{T_0,1\}\). Define
+
+\[
+r_h(w):=\int_0^h e^{sw}\,ds
+       =\begin{cases}(e^{hw}-1)/w,&w\neq0,\\h,&w=0.
+         \end{cases}                            \tag{3.7}
+\]
+
+The nonzero zeros of \(e^{hw}-1\) are \(2\pi i k/h\), \(k\in\mathbb Z\setminus\{0\}\), and lie outside the strip (3.1). Thus \(r_h\) has no zero there. Moreover,
+
+\[
+|r_h(w)|^{-1}\leq c_{h,a}(1+|w|)                \tag{3.8}
+\]
+
+for some finite constant \(c_{h,a}\). Indeed, when \(\operatorname{Re}w\leq-1\),
+
+\[
+|e^{hw}-1|\geq1-e^{-h}.
+\]
+
+The rest of the strip is compact, if nonempty, and contains no zero of \(r_h\).
+
+It follows that
+
+\[
+d_z(w):=\frac{e^{zw}}{r_h(w)}                    \tag{3.9}
+\]
+
+is a bounded spectral multiplier, uniformly for \(z\) in each compact subset of the right half-plane. Let \(D(z)\) be the corresponding bounded operator. Set
+
+\[
+R_h:=\int_0^h U(s)\,ds.
+\]
+
+This operator-valued integral exists without norm continuity at zero. For \(\varepsilon>0\), integrate the norm-continuous function on \([\varepsilon,h]\). The omitted tail has norm at most \(\varepsilon\sup_{0<s\leq h}\|U(s)\|\), so these integrals converge in operator norm as \(\varepsilon\downarrow0\). Spectral calculus gives
+
+\[
+R_h=\int r_h(w(\lambda))\,dE(\lambda),
+\qquad U(z)=R_hD(z).                             \tag{3.10}
+\]
+
+Enumerate \(J\), or use the finite family directly, and let
+
+\[
+C_Nx=(\langle x,g_j\rangle)_{j\leq N}.
+\]
+
+Each \(C_N\) is bounded. By (3.4),
+
+\[
+\int_0^h\|C_NU(s)x\|^2\,ds\leq M\|x\|^2.
+\]
+
+Hence Cauchy–Schwarz and (3.10) imply
+
+\[
+\begin{aligned}
+\|C_NU(z)x\|
+&=\left\|\int_0^h C_NU(s)D(z)x\,ds\right\|\\
+&\leq\sqrt{hM}\,\|D(z)\|\,\|x\|.
+\end{aligned}                                   \tag{3.11}
+\]
+
+The bound is independent of \(N\). Taking the supremum over finite partial sums proves that (3.5) belongs to \(\ell^2\) and satisfies (3.6).
+
+For completeness, holomorphy also follows from these bounds without any compactness assumption on the output space. On a closed disc strictly inside the half-plane, finite-dimensional Cauchy estimates bound the Taylor coefficient vectors of \(C_NU(z)x\) uniformly in \(N\). Their coordinatewise limits belong to \(\ell^2\) with the same estimates. The resulting vector-valued power series converges in \(\ell^2\) on each smaller disc and agrees with every coordinate of \(F_x\). Thus \(F_x\) is holomorphic. \(\square\)
+
+The averaging multiplier resembles the bounded-generator admissibility argument in [3, Theorem 3.9]. Here \(R_h\) need not have a bounded inverse. The factor \(U(z)\) compensates for the growth of its reciprocal at small spectral values, which is precisely what allows the noninvertible case.
+
+## 4. Propagation of small observation energy
+
+The squared norm of a holomorphic vector-valued function is generally not holomorphic. We use reflection in the real axis to obtain a scalar holomorphic function with the required real-time values.
+
+### Lemma 4.1. Propagation along positive real times
+
+Let \(Y\) be a complex Hilbert space, and let \(F_n\) be holomorphic \(Y\)-valued functions on \(\operatorname{Re}z>0\), locally uniformly bounded in norm. If
+
+\[
+\int_J\|F_n(t)\|^2\,dt\longrightarrow0           \tag{4.1}
+\]
+
+on a nondegenerate compact interval \(J\subset(0,\infty)\), then for every compact interval \(K\subset(0,\infty)\),
+
+\[
+\sup_{t\in K}\|F_n(t)\|\longrightarrow0.         \tag{4.2}
+\]
+
+**Proof.** Define
+
+\[
+e_n(z):=\langle F_n(z),F_n(\overline z)\rangle_Y. \tag{4.3}
+\]
+
+This function is holomorphic: reflection in the variable and conjugate linearity in the second inner-product slot cancel. The assertion also follows by multiplying local power series. Cauchy–Schwarz gives local uniform bounds for \(e_n\). For real \(t>0\),
+
+\[
+e_n(t)=\|F_n(t)\|^2\geq0.                       \tag{4.4}
+\]
+
+Montel's theorem implies that each subsequence has a further subsequence converging uniformly on compact subsets to a scalar holomorphic function \(e\). On \(J\), (4.1), uniform convergence and nonnegativity imply \(e=0\). The identity theorem gives \(e\equiv0\) on the connected half-plane. Every convergent subsequence therefore has the same zero limit, so \(e_n\to0\) uniformly on compact subsets. Restricting to real \(K\) and using (4.4) proves (4.2). \(\square\)
+
+This lemma concerns a uniformly bounded analytic family. Applying the identity theorem separately to each initial state would establish only a uniqueness statement and would not yield the lower frame bound needed here.
+
+## 5. Proof of the main theorem
+
+Suppose
+
+\[
+m\|x\|^2\leq Q_{T_0}(x)\leq M\|x\|^2
+\qquad(x\in H),\qquad m>0.                      \tag{5.1}
+\]
+
+**Injectivity.** If \(x\in\ker A\), normality gives \(E(\{0\})x=x\). Thus \((A^t)^*x=0\) for every \(t>0\), and \(Q_{T_0}(x)=0\). The lower bound forces \(x=0\). Lemma 3.1 therefore applies.
+
+**Upper bounds.** For \(T\leq T_0\), monotonicity of the integral gives \(Q_T\leq Q_{T_0}\). For a longer interval, put \(q=\lceil T/T_0\rceil\). The semigroup identity \(U(s+t)=U(s)U(t)\) gives
+
+\[
+\begin{aligned}
+Q_T(x)
+&\leq\sum_{k=0}^{q-1}Q_{T_0}(U(kT_0)x)\\
+&\leq M\sum_{k=0}^{q-1}\|A\|^{2kT_0}\,\|x\|^2,
+\end{aligned}                                   \tag{5.2}
+\]
+
+where \(U(0)=I\). This is a finite upper bound.
+
+**Lower bounds.** For \(T\geq T_0\), the lower bound in (5.1) applies directly. Fix \(0<T<T_0\). If no positive lower bound existed, there would be unit vectors \(x_n\) with
+
+\[
+Q_T(x_n)\longrightarrow0.                       \tag{5.3}
+\]
+
+By Lemma 3.1, the functions \(F_{x_n}\) are locally uniformly bounded holomorphic \(\ell^2\)-valued functions. Their integrated squared norms on \([T/3,2T/3]\) tend to zero. Lemma 4.1 gives
+
+\[
+\sup_{t\in[T,T_0]}\|F_{x_n}(t)\|\longrightarrow0.
+\]
+
+Consequently,
+
+\[
+\begin{aligned}
+Q_{T_0}(x_n)
+&=Q_T(x_n)+\int_T^{T_0}\|F_{x_n}(t)\|^2\,dt\\
+&\longrightarrow0,
+\end{aligned}
+\]
+
+contradicting \(Q_{T_0}(x_n)\geq m\). Thus \(Q_T\) has a positive lower bound. This completes the proof of Theorem 2.1. \(\square\)
+
+## 6. Examples, conditioning and boundaries
+
+### 6.1. A noninvertible operator with non-Bessel observations
+
+On \(H=\ell^2(\mathbb N)\), let
+
+\[
+Ae_n=e^{-n}e_n,\qquad g_n=\sqrt{2n}\,e_n.
+\]
+
+The operator is injective and normal but has no bounded inverse. The sensor family is not Bessel. Direct integration gives
+
+\[
+Q_T(x)=\sum_{n\geq1}(1-e^{-2nT})|x_n|^2.        \tag{6.1}
+\]
+
+Its optimal bounds are \(m_T=1-e^{-2T}\) and \(M_T=1\). Thus the additional cases covered by the theorem are nonempty.
+
+The unbounded instantaneous sensor energy is necessary for this noninvertible case, not an incidental feature of the example. Suppose instead that \(G\) has Bessel bound \(B\), and that the frame premise holds. If \(A\) were not invertible, injectivity and normal spectral calculus would provide unit vectors \(x_\varepsilon\) supported on \(0<|\lambda|\leq\varepsilon\), for arbitrarily small \(\varepsilon<1\). Then
+\[
+Q_T(x_\varepsilon)\leq B\int_0^T\|U(t)x_\varepsilon\|^2\,dt
+\leq B\int_0^T\varepsilon^{2t}\,dt
+=B\frac{1-\varepsilon^{2T}}{2|\log\varepsilon|}\longrightarrow0,
+\]
+contradicting the lower bound. Thus Bessel observations and the frame premise force invertibility here. This elementary consequence explains why allowing non-Bessel sensors genuinely enlarges the setting.
+
+### 6.2. Reductivity is unnecessary
+
+Let \(A\) be multiplication by \(z\) on \(L^2\) of the unit circle, with normalised arc measure, and take the Fourier orthonormal basis as \(G\). The operator is unitary and normal. The closed span of the nonnegative Fourier modes is invariant under \(A\) but not under \(A^*\), so \(A\) is not reductive. Every \(A^t\), with the fixed Borel argument convention, is unitary. Hence
+
+\[
+Q_T(x)=T\|x\|^2.
+\]
+
+### 6.3. Shorter windows can be poorly conditioned
+
+Take \(A=\operatorname{diag}(1,e^{-1})\) on \(\mathbb C^2\), with one observation vector \(g=(1,1)\). The observation Gramian is
+
+\[
+W_T=\begin{pmatrix}
+T&1-e^{-T}\\
+1-e^{-T}&(1-e^{-2T})/2
+\end{pmatrix}.                                  \tag{6.2}
+\]
+
+The functions \(1\) and \(e^{-t}\) are linearly independent on every positive-length interval, so \(W_T\) is positive definite. As \(T\downarrow0\),
+
+\[
+\det W_T=\frac{T^4}{12}+O(T^5),\qquad
+\operatorname{tr}W_T=2T+O(T^2),\qquad
+\lambda_{\min}(W_T)=\frac{T^3}{24}+O(T^4).       \tag{6.3}
+\]
+
+The smallest possible norm of a left inverse for the observation map is therefore asymptotic to \(\sqrt{24}\,T^{-3/2}\). Stable reconstruction exists for each \(T\), while its sensitivity to measurement error becomes arbitrarily large. These expansions follow directly from (6.2); the accompanying `verify_normal_frames.py` checks the displayed coefficients using exact rational series arithmetic. Its floating-point integration checks are illustrations, not a verification of the abstract theorem.
+
+### 6.4. Delaying observation can destroy the lower bound
+
+For the example in (6.1), observations restricted to \([a,b]\), with \(0<a<b<\infty\), give
+
+\[
+Q_{[a,b]}(x)=\sum_{n\geq1}
+\bigl(e^{-2na}-e^{-2nb}\bigr)|x_n|^2.            \tag{6.4}
+\]
+
+The weights tend to zero. Testing on \(e_n\) shows that no positive lower frame bound exists. Theorem 2.1 concerns shortening an interval that still begins at zero, not moving the observation interval away from zero. In fact there is a complete criterion, as a direct consequence of the theorem and spectral calculus.
+
+**Corollary 6.1 (delayed windows).** Under the hypotheses of Theorem 2.1, fix \(a>0\) and \(T>0\). The observations on \([a,a+T]\) form a frame if and only if \(A\) has a bounded inverse. In that case a lower bound is \(m_T\|A^{-1}\|^{-2a}\), and an upper bound is \(M_T\|A\|^{2a}\).
+
+**Proof.** The semigroup identity gives \(Q_{[a,a+T]}(x)=Q_T(U(a)x)\). Hence
+\[
+m_T\|U(a)x\|^2\leq Q_{[a,a+T]}(x)\leq M_T\|U(a)x\|^2.
+\]
+The delayed frame inequality holds exactly when \(U(a)\) is bounded below. By normal spectral calculus its modulus is \(|A|^a\); this is bounded below exactly when \(|A|\) is. A bounded normal operator bounded below is invertible: its range is closed, and its orthogonal complement is \(\ker A^*=\ker A=\{0\}\). The stated constants follow from the spectral upper and lower bounds. \(\square\)
+
+This corollary is an elementary consequence, not a separate priority claim. It identifies the exact boundary behind the example: initial-time measurements can compensate for rapidly decaying modes, but a positive delay loses that compensation unless the spectrum stays away from zero.
+
+### 6.5. Finite and infinite windows are different
+
+If \(A=I\) and \(G\) is an orthonormal basis, then \(Q_T(x)=T\|x\|^2\) for every finite \(T\), while the infinite-time upper bound fails for every nonzero \(x\).
+
+Conversely, let
+
+\[
+Ae_n=e^{-1/n}e_n,\qquad g_n=\sqrt{2/n}\,e_n.
+\]
+
+Then \(G\) is Bessel, \(A\) is bounded and invertible, and \(Q_\infty(x)=\|x\|^2\). For finite \(T\), however,
+
+\[
+Q_T(x)=\sum_{n\geq1}(1-e^{-2T/n})|x_n|^2,
+\]
+
+whose weights tend to zero. No finite window has a positive lower bound. Neither implication between finite-window and infinite-window frame properties follows without further assumptions.
+
+## 7. Relation to observation theory and prior-art boundary
+
+The lower inequality in (2.2) is an exact initial-state observability inequality. It should be distinguished from approximate observability, which asserts uniqueness, and from final-state observability, whose left-hand side controls an evolved state. The latter distinction matters for parabolic control problems, where statements about minimum control times concern different inequalities.
+
+The dictionary in [3] makes the connection between dynamical frames and control theory explicit. Its Theorem 3.11 states the self-adjoint time-independence result. Engel and Nagel [4, Corollary VI.8.12] give analytic-semigroup time independence for approximate controllability. That theorem alone does not provide the uniform lower norm estimate proved here.
+
+Time independence is not a general property of strongly continuous semigroups. Partington and Pott [5, Section 5, p. 30] explicitly exhibit a left-shift semigroup whose exact-observation inequality holds only for durations at least one. The following periodic transport example gives a self-contained illustration with bounded observations. Take
+
+\[
+H=L^2(\mathbb R/\mathbb Z),\qquad
+T(t)f(s)=e^{-t}f(s+t\bmod1),\qquad
+Cf=\mathbf1_{[0,a]}f,
+\quad0<a<1.
+\]
+
+For \(T<1-a\), a nonzero function can avoid the observed arc throughout the observation interval, so the lower bound fails. Over \([0,1]\), every spatial point is observed for a total duration \(a\), and \(e^{-2t}\geq e^{-2}\). Hence
+
+\[
+\int_0^1\|CT(t)f\|^2\,dt\geq ae^{-2}\|f\|^2.
+\]
+
+This semigroup is strongly continuous and exponentially stable; it is not analytic. The example illustrates why the analytic structure used in our proof matters. It is not claimed as a new counterexample or as a refutation of a result in [5].
+
+The proof suggests a general analytic-semigroup principle whenever the observation map has local holomorphic bounds away from zero. We do not claim priority for that broader principle. Haak and Ouhabaz [6] study exact observability with unbounded observations under additional backward-forward conditioning and square-function assumptions. Those additional conditions cannot be silently deduced from our single finite-window frame premise; the distinction is particularly relevant to the non-Bessel example.
+
+The bounded literature search was refreshed on 5 November 2026. It covered the original conjecture, exact observability and controllability, admissible observations, analytic semigroups, bounded generators, continuous-power frames and time-independence terminology. The sources [1]–[6] were inspected in full or in their relevant sections. Targeted Evidence Press catalogue/source searches and OpenAI/TrureTuring corpus-title/path searches found no matching published resolution; those corpus checks were not full-text reviews of every paper. No earlier complete proof of the precise theorem presented here was located within this boundary. This negative search result does not establish historical priority, and older or unindexed control-theory sources remain a limitation. A source-to-claim comparison accompanies the evidence package.
+
+The mathematical conclusion is independent of that priority question: under the stated branch convention, a frame generated by a bounded normal operator on one finite window beginning at zero remains a frame on every such window. Determining useful lower constants and controlling reconstruction error after substantial temporal compression remain quantitative problems beyond the existence theorem.
+
+## References
+
+1. Aldroubi, A., Huang, L. X., & Petrosyan, A. (2019). Frames induced by the action of continuous powers of an operator. *Journal of Mathematical Analysis and Applications, 478*(2), 1059–1084. https://doi.org/10.1016/j.jmaa.2019.05.066. Inspected preprint: https://arxiv.org/pdf/1801.10103.
+
+2. Aldroubi, A., Cabrelli, C., Krishtal, I., & Molter, U. (2026). Dynamical sampling: A survey. *La Matematica, 5*, Article 37. https://doi.org/10.1007/s44007-026-00215-y.
+
+3. Díaz Martín, R., Medri, I., & Molter, U. (2021). Dynamical sampling: A view from control theory. In M. Hirn, S. Li, K. A. Okoudjou, S. Saliani, & Ö. Yilmaz (Eds.), *Excursions in harmonic analysis, volume 6* (pp. 269–295). Birkhäuser. https://doi.org/10.1007/978-3-030-69637-5_15. Inspected preprint: https://arxiv.org/pdf/2003.01488.
+
+4. Engel, K.-J., & Nagel, R. (2000). *One-parameter semigroups for linear evolution equations*. Springer. https://doi.org/10.1007/b97696. Inspected text: https://www.math.uni-tuebingen.de/de/forschung/agfa/members/engel-nagel_one-parameter-semigroups.pdf.
+
+5. Partington, J. R., & Pott, S. (2005). Admissibility and exact observability of observation operators for semigroups. *Irish Mathematical Society Bulletin, 55*, 19–39. https://www.maths.tcd.ie/pub/ims/bull55/R5502.pdf.
+
+6. Haak, B. H., & Ouhabaz, E. M. (2012). Exact observability, square functions and spectral theory. *Journal of Functional Analysis, 262*, 2903–2927. https://doi.org/10.1016/j.jfa.2012.01.007. Author manuscript: https://www.math.u-bordeaux.fr/~bhaak/recherche/HaakOuhabaz.pdf.

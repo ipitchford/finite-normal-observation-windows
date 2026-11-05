@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "version": "0.1.0-candidate",
+  "creator": "Anonymous",
+  "claims": [
+    {
+      "id": "C1",
+      "statement": "For bounded normal A with fixed bounded Borel argument and countable G, a two-sided frame inequality on one finite [0,T0] implies one on each finite [0,T].",
+      "location": "Theorem 2.1",
+      "evidence": "Written proof, Sections 3–5",
+      "limits": "No uniform lower constants; continuous observations; no arbitrary semigroup."
+    },
+    {
+      "id": "C2",
+      "statement": "Integrated upper observation bound implies locally bounded holomorphic observations at positive complex times.",
+      "location": "Lemma 3.1",
+      "evidence": "Written multiplier and finite-truncation proof"
+    },
+    {
+      "id": "C3",
+      "statement": "Under the frame premise, positive-delay windows are frames exactly when A is invertible.",
+      "location": "Corollary 6.1",
+      "evidence": "Elementary consequence of C1 and normal spectral calculus",
+      "novelty": "Not a separate priority claim"
+    },
+    {
+      "id": "C4",
+      "statement": "Example Gramian smallest eigenvalue is T^3/24+O(T^4).",
+      "location": "Section 6.3",
+      "evidence": "Written expansion and exact finite rational series checks",
+      "limits": "Numerical quadrature is illustrative."
+    }
+  ]
+}

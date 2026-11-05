@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "1.0",
+  "contributionMap": [
+    {
+      "claim": "For bounded normal A with fixed bounded Borel argument and countable G, a two-sided frame inequality on one finite [0,T0] implies one on each finite [0,T].",
+      "unit": "statement",
+      "paperLocation": "Theorem 2.1",
+      "searches": [
+        {
+          "date": "2026-11-05",
+          "query": "continuous powers normal reductive frames exact observability analytic semigroup time independence",
+          "corpus": "Primary sources and bounded web/catalogue/title/path searches described in SOURCES.md"
+        }
+      ],
+      "closestPriorWork": "Aldroubi–Huang–Petrosyan Theorem 5.5 and Conjecture 5.6",
+      "verdict": "new-in-bounded-search"
+    },
+    {
+      "claim": "Integrated admissibility plus averaging multiplier produces locally bounded holomorphic observations despite unbounded logarithm and non-Bessel sensors.",
+      "unit": "method",
+      "paperLocation": "Lemma 3.1",
+      "searches": [
+        {
+          "date": "2026-11-05",
+          "query": "continuous powers normal reductive frames exact observability analytic semigroup time independence",
+          "corpus": "Primary sources and bounded web/catalogue/title/path searches described in SOURCES.md"
+        }
+      ],
+      "closestPriorWork": "Díaz Martín–Medri–Molter Theorem 3.9; Aldroubi–Huang–Petrosyan analytic/Montel strategy",
+      "verdict": "partially-known-cited"
+    },
+    {
+      "claim": "Delayed-window criterion and Bessel/invertibility consequence are elementary consequences, not independent priority claims.",
+      "unit": "statement",
+      "paperLocation": "Sections 6.1 and 6.4",
+      "searches": [
+        {
+          "date": "2026-11-05",
+          "query": "continuous powers normal reductive frames exact observability analytic semigroup time independence",
+          "corpus": "Primary sources and bounded web/catalogue/title/path searches described in SOURCES.md"
+        }
+      ],
+      "closestPriorWork": "Standard normal spectral calculus; Theorem 2.1",
+      "verdict": "partially-known-cited"
+    }
+  ],
+  "sourcesReadInFull": [
+    {
+      "citation": "Aldroubi–Huang–Petrosyan (2019)",
+      "usedFor": "Invertible self-adjoint antecedent and normal-reductive conjecture; Montel strategy is inherited.",
+      "readWhat": "Theorem 5.5, Conjecture 5.6 and proof",
+      "date": "2026-11-05",
+      "evidenceLocator": "https://arxiv.org/pdf/1801.10103"
+    },
+    {
+      "citation": "Aldroubi–Cabrelli–Krishtal–Molter (2026)",
+      "usedFor": "Survey repeats target; not proof of worldwide priority.",
+      "readWhat": "Theorem 2.13 and Conjecture 2",
+      "date": "2026-11-05",
+      "evidenceLocator": "https://doi.org/10.1007/s44007-026-00215-y"
+    },
+    {
+      "citation": "Díaz Martín–Medri–Molter (2021)",
+      "usedFor": "Bounded-generator admissibility and self-adjoint time independence; does not directly cover unbounded logarithm.",
+      "readWhat": "Theorems 3.9 and 3.11",
+      "date": "2026-11-05",
+      "evidenceLocator": "https://arxiv.org/pdf/2003.01488"
+    },
+    {
+      "citation": "Partington–Pott (2005)",
+      "usedFor": "Exact-observation duration can matter for general semigroups; no refutation claimed.",
+      "readWhat": "Section 5, printed page 30",
+      "date": "2026-11-05",
+      "evidenceLocator": "https://www.maths.tcd.ie/pub/ims/bull55/R5502.pdf"
+    },
+    {
+      "citation": "Haak–Ouhabaz (2012)",
+      "usedFor": "Additional backward-forward conditioning hypotheses cannot be inferred from this manuscript's frame premise.",
+      "readWhat": "Introduction and BFC/analytic passages",
+      "date": "2026-11-05",
+      "evidenceLocator": "https://www.math.u-bordeaux.fr/~bhaak/recherche/HaakOuhabaz.pdf"
+    }
+  ],
+  "limitationTriage": [
+    {
+      "limitation": "Quantitative lower frame constants and short-window conditioning",
+      "closingQuestion": "Can existing bounds replace the Montel contradiction?",
+      "triedOrSearched": "Analytic proof inspected; finite Gramian expansion supplies a warning, not a general constant.",
+      "estimatedCost": "Substantial research, unknown duration",
+      "cheap": false,
+      "decision": "OPEN",
+      "reasonOpen": "Proof is qualitative; no general effective bound obtained.",
+      "whyNotClosedNow": "Proof is qualitative; no general effective bound obtained."
+    },
+    {
+      "limitation": "Delayed observation boundary",
+      "closingQuestion": "Does invertibility characterize delayed windows?",
+      "triedOrSearched": "Semigroup identity and spectral calculus prove Corollary 6.1.",
+      "estimatedCost": "Under 2 hours",
+      "cheap": true,
+      "decision": "CLOSED",
+      "reasonOpen": "",
+      "whyNotClosedNow": ""
+    },
+    {
+      "limitation": "Bessel versus noninvertibility",
+      "closingQuestion": "Can Bessel sensors satisfy the noninvertible premise?",
+      "triedOrSearched": "Small-spectral-subspace inequality shows they cannot.",
+      "estimatedCost": "Under 2 hours",
+      "cheap": true,
+      "decision": "CLOSED",
+      "reasonOpen": "",
+      "whyNotClosedNow": ""
+    },
+    {
+      "limitation": "Finite discrete measurements and nonnormal/general analytic extension",
+      "closingQuestion": "Does the current proof supply a sampling theorem or broader new result?",
+      "triedOrSearched": "Scope and counterexamples inspected; no discretization estimate; broader priority not established.",
+      "estimatedCost": "Substantial research, unknown duration",
+      "cheap": false,
+      "decision": "OPEN",
+      "reasonOpen": "Different hypotheses and historical search required.",
+      "whyNotClosedNow": "Different hypotheses and historical search required."
+    },
+    {
+      "limitation": "Historical priority",
+      "closingQuestion": "Can a bounded search prove no prior publication exists?",
+      "triedOrSearched": "Primary-source comparison and bounded catalogue/corpus search.",
+      "estimatedCost": "Unbounded literature coverage",
+      "cheap": false,
+      "decision": "OPEN",
+      "reasonOpen": "No finite negative search guarantees priority.",
+      "whyNotClosedNow": "No finite negative search guarantees priority."
+    }
+  ],
+  "extensionScout": {
+    "by": "Internal AI-assisted proof and domain review",
+    "date": "2026-11-05",
+    "proposals": [
+      "Delayed-window iff criterion",
+      "Explain non-Bessel necessity",
+      "Quantitative frame bounds"
+    ],
+    "actions": [
+      "Added elementary Corollary 6.1",
+      "Added spectral-subspace argument",
+      "Retained as open quantitative research; did not manufacture constants"
+    ]
+  }
+}

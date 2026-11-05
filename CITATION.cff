@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Please cite the manuscript; DOI is reserved pending publication."
+title: "Finite observation windows for continuous powers of normal operators"
+authors:
+  - name: Anonymous
+version: 0.1.0-candidate
+license: CC0-1.0
+doi: 10.5281/zenodo.23990540
+repository-code: https://github.com/ipitchford/finite-normal-observation-windows

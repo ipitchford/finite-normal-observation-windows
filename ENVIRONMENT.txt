@@ -1,0 +1,6 @@
+Python: 3.10+ (standard library only)
+Checker dependencies: fractions, math, json, argparse, pathlib and other standard-library modules
+Test harness: subprocess, hashlib; each subprocess timeout 60 seconds
+Typesetting: Pandoc with markdown+tex_math_single_backslash and a LaTeX engine
+Scientific status: exact rational arithmetic for finite series; floating-point quadrature for illustrative values
+Optimized Python: supported; explicit scientific guards remain active
